@@ -25,7 +25,7 @@ class Reviewer(db.Model):
     review = db.relationship('Review', backref='reviewer', lazy=True)
 
 
-class Questions(db.Model):
+class Question(db.Model):
     """ A class containing information about the questions to be asked
     """
     question_id = db.Column(db.Integer, primary_key=True)
