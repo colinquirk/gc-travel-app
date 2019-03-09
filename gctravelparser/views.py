@@ -85,7 +85,12 @@ def basic():
         db.session.add(application)
 
         for slug, response_text in request.form.items():
-            prompt = Prompt.query.filter_by(slug=slug).filter_by(is_active=True).first()
+            prompt = (
+                Prompt.query.filter_by(slug=slug)
+                .filter_by(is_active=True)
+                .filter_by(in_basic_application=True)
+                .first()
+            )
             if prompt:
                 response = Response(
                     application_id=application.application_id,
@@ -118,6 +123,22 @@ def advanced():
             uuid=str(uuid4())
         )
         db.session.add(application)
+
+        for slug, response_text in request.form.items():
+            prompt = (
+                Prompt.query.filter_by(slug=slug)
+                .filter_by(is_active=True)
+                .filter_by(in_advanced_application=True)
+                .first()
+            )
+            if prompt:
+                response = Response(
+                    application_id=application.application_id,
+                    prompt_id=prompt.prompt_id,
+                    text=response_text
+                )
+                db.session.add(response)
+
         db.session.commit()
 
         return redirect(url_for('index'))
