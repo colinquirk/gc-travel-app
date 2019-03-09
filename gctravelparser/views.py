@@ -2,7 +2,8 @@ from datetime import datetime
 from uuid import uuid4
 from flask import redirect, render_template, request, url_for
 from gctravelparser import app, db
-from gctravelparser.models import Applicant, Application, Recommendation, Review, Reviewer
+from gctravelparser.models import (
+    Applicant, Application, Recommendation, Review, Reviewer, Prompt)  # Question, Response, Rating)
 
 
 def get_applicant(form):
@@ -86,7 +87,7 @@ def basic():
 
         return redirect(url_for('index'))
 
-    return render_template('basic.html')
+    return render_template('basic.html', prompts=Prompt.query.filter_by(in_basic_application=True))
 
 
 @app.route('/advanced', methods=['GET', 'POST'])
