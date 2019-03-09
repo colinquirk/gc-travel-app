@@ -41,6 +41,7 @@ class Application(db.Model):
     presentation_type = db.Column(db.String(50), nullable=True)
     uuid = db.Column(db.String(36), unique=True, nullable=False)
     reviews = db.relationship('Review', backref='application', lazy=True)
+    responses = db.relationship('Response', backref='application', lazy=True)
 
 
 class Recommendation(db.Model):
@@ -87,17 +88,19 @@ class Prompt(db.Model):
     responses = db.relationship('Response', backref='prompt', lazy=True)
 
 
-class Question(db.Model):
-    """ A class containing information about the questions on reviews
-    """
-    question_id = db.Column(db.Integer, primary_key=True)
-
-
 class Response(db.Model):
     """ A class containing information about the application responses
     """
     response_id = db.Column(db.Integer, primary_key=True)
+    application_id = db.Column(db.Integer, db.ForeignKey('application.application_id'), nullable=False)
     prompt_id = db.Column(db.Integer, db.ForeignKey('prompt.prompt_id'), nullable=False)
+    text = db.Column(db.Text, nullable=False)
+
+
+class Question(db.Model):
+    """ A class containing information about the questions on reviews
+    """
+    question_id = db.Column(db.Integer, primary_key=True)
 
 
 class Rating(db.Model):

@@ -3,7 +3,7 @@ from uuid import uuid4
 from flask import redirect, render_template, request, url_for
 from gctravelparser import app, db
 from gctravelparser.models import (
-    Applicant, Application, Recommendation, Review, Reviewer, Prompt)  # Question, Response, Rating)
+    Applicant, Application, Recommendation, Review, Reviewer, Prompt, Response)  # Question Rating
 
 
 def get_applicant(form):
@@ -83,6 +83,17 @@ def basic():
             uuid=str(uuid4())
         )
         db.session.add(application)
+
+        for slug, response_text in request.form.items():
+            prompt = Prompt.query.filter_by(slug=slug).filter_by(is_active=True).first()
+            if prompt:
+                response = Response(
+                    application_id=application.application_id,
+                    prompt_id=prompt.prompt_id,
+                    text=response_text
+                )
+                db.session.add(response)
+
         db.session.commit()
 
         return redirect(url_for('index'))
