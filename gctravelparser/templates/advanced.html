@@ -58,46 +58,17 @@
         The Grad Council Travel Award is funded through life fees provided by the graduate student body. 
         Please explain the relevance of your event, how it ties into what you do, and how you will give back to the community if you are funded. 
         Avoid using special formatting (bulletpoints, etc) or unusual characters.
-    </strong>
-    </p>
-
-    <p>
-        Question 1: in 200 words or less, describe the importance of this event and why it is relevant to your academic/professional interests. 
-        Additionally, please explain the nature of your participation in the event and describe how competitive it is to present at this particular event.
-    </p>
-    <textarea rows="8" cols="100" name="importance"></textarea>
-
-    <p>
-        Question 2: Within 400 words or less, please explain to your fellow graduate students what your project is and the significance of your research. 
-        How does your project contribute to your field of study? 
-        This information helps us understand how your event ties into the advancement of your degree. 
-        Please use language that would be appropriate for an educated lay-person.
-    </p>
-    <textarea rows="8" cols="100" name="significance"></textarea>
- 
-    <p>
-        Question 3: Graduate Council's goal is to build a strong community of scholars from across the University, from which this fund benefits. 
-        In 200 words or less, describe how in the months following your attendance you will contribute to the greater UChicago community. 
-        This can either tie directly into your event or can instead be general service to your fellow graduate students. 
-        (e.g. perhaps you will report back to your school, write a post for a website, create educational material, review for the travel fund committee, host a departmental event)?
-    </p>
-    <textarea rows="8" cols="100" name="contribution"></textarea>
-
-    <p>
-    <strong>
         When listing your expenses and alternate funding sources, please only use US Dollars.
     </strong>
     </p>
-    <p>
-        List of Proposed Expenditures (see Policies and Instructions for what is covered by Travel Fund). 
-        This is not a binding list and is only to estimate how funds will be used.
-    </p>
-    <textarea rows="8" cols="100" name="expenditures"></textarea>
 
-    <p>
-        List of Alternate Funding Sources (including those you have applied for and/or what your advisor is providing)
-    </p>
-    <textarea rows="8" cols="100" name="alternative-funding"></textarea>
+    {% for prompt in prompts %}
+        <p>
+            {{prompt.text}}
+        </p>
+        <p>Word limit: {{prompt.word_limit}}</p>
+        <textarea rows="8" cols="100" name="{{prompt.slug}}"></textarea>
+    {% endfor %}
 
     <p>
         Upon submission of this form, an email will be automatically sent to your faculty contact containing the link to the recommendation form. 

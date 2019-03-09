@@ -111,7 +111,7 @@ def advanced():
 
         return redirect(url_for('index'))
 
-    return render_template('advanced.html')
+    return render_template('advanced.html', prompts=Prompt.query.filter_by(in_advanced_application=True))
 
 
 @app.route('/recommendation/<uuid:uuid>', methods=['GET', 'POST'])
