@@ -71,10 +71,10 @@ class Review(db.Model):
     ratings = db.relationship('Rating', backref='review', lazy=True)
 
 
-class Question(db.Model):
-    """ A class containing information about the questions to be asked
+class Prompt(db.Model):
+    """ A class containing information about the prompts to be asked
     """
-    question_id = db.Column(db.Integer, primary_key=True)
+    prompt_id = db.Column(db.Integer, primary_key=True)
     is_active = db.Column(db.Boolean, nullable=False)
     in_basic_application = db.Column(db.Boolean, nullable=False)
     in_advanced_application = db.Column(db.Boolean, nullable=False)
@@ -84,14 +84,18 @@ class Question(db.Model):
     version_major = db.Column(db.Integer, nullable=False)
     version_minor = db.Column(db.Integer, nullable=False)
     version_patch = db.Column(db.Integer, nullable=False)
-    responses = db.relationship('Response', backref='question', lazy=True)
+    responses = db.relationship('Response', backref='prompt', lazy=True)
 
+
+class Question(db.Model):
+    """ A class containing information about the questions on reviews
+    """
 
 class Response(db.Model):
     """ A class containing information about the application responses
     """
     response_id = db.Column(db.Integer, primary_key=True)
-    question_id = db.Column(db.Integer, db.ForeignKey('question.question_id'), nullable=False)
+    prompt_id = db.Column(db.Integer, db.ForeignKey('prompt.prompt_id'), nullable=False)
 
 
 class Rating(db.Model):
