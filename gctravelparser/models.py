@@ -90,6 +90,8 @@ class Prompt(db.Model):
 class Question(db.Model):
     """ A class containing information about the questions on reviews
     """
+    question_id = db.Column(db.Integer, primary_key=True)
+
 
 class Response(db.Model):
     """ A class containing information about the application responses
