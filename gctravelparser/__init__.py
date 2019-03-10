@@ -17,7 +17,7 @@ db.session.commit()
 
 # temp add questions from json
 import json  # noqa: E402
-from gctravelparser.models import Prompt  # noqa: E402
+from gctravelparser.models import Prompt, Question  # noqa: E402
 
 
 with open('gctravelparser/static/prompts.json') as f:
@@ -35,4 +35,19 @@ with open('gctravelparser/static/prompts.json') as f:
             version_patch=app.config['VERSION_NUMBER_PATCH']
         )
         db.session.add(prompt)
-    db.session.commit()
+
+with open('gctravelparser/static/questions.json') as f:
+    questions = json.load(f)
+    for q in questions:
+        question = Question(
+            prompt_id=q['prompt_id'],
+            is_active=True,
+            slug=q['slug'],
+            text=q['text'],
+            version_major=app.config['VERSION_NUMBER_MAJOR'],
+            version_minor=app.config['VERSION_NUMBER_MINOR'],
+            version_patch=app.config['VERSION_NUMBER_PATCH']
+        )
+        db.session.add(question)
+
+db.session.commit()

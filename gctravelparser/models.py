@@ -102,7 +102,7 @@ class Question(db.Model):
     """ A class containing information about the dropdowns on reviews
     """
     question_id = db.Column(db.Integer, primary_key=True)
-    prompt_id = db.Column(db.Integer, db.ForeignKey('prompt.prompt_id'), nullable=False)
+    prompt_id = db.Column(db.Integer, db.ForeignKey('prompt.prompt_id'), nullable=True)
     is_active = db.Column(db.Boolean, nullable=False)
     slug = db.Column(db.String(100), nullable=False)
     text = db.Column(db.Text, nullable=False)
@@ -117,3 +117,4 @@ class Rating(db.Model):
     """
     rating_id = db.Column(db.Integer, primary_key=True)
     review_id = db.Column(db.Integer, db.ForeignKey('review.review_id'), nullable=False)
+    question_id = db.Column(db.Integer, db.ForeignKey('question.question_id'), nullable=False)
