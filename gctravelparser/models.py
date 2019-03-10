@@ -86,6 +86,7 @@ class Prompt(db.Model):
     version_minor = db.Column(db.Integer, nullable=False)
     version_patch = db.Column(db.Integer, nullable=False)
     responses = db.relationship('Response', backref='prompt', lazy=True)
+    questions = db.relationship('Question', backref='prompt', lazy=True)
 
 
 class Response(db.Model):
@@ -93,14 +94,22 @@ class Response(db.Model):
     """
     response_id = db.Column(db.Integer, primary_key=True)
     application_id = db.Column(db.Integer, db.ForeignKey('application.application_id'), nullable=False)
-    prompt_id = db.Column(db.Integer, db.ForeignKey('prompt.prompt_id'), nullable=False)
+    prompt_id = db.Column(db.Integer, db.ForeignKey('prompt.prompt_id'), nullable=True)
     text = db.Column(db.Text, nullable=False)
 
 
 class Question(db.Model):
-    """ A class containing information about the questions on reviews
+    """ A class containing information about the dropdowns on reviews
     """
     question_id = db.Column(db.Integer, primary_key=True)
+    prompt_id = db.Column(db.Integer, db.ForeignKey('prompt.prompt_id'), nullable=False)
+    is_active = db.Column(db.Boolean, nullable=False)
+    slug = db.Column(db.String(100), nullable=False)
+    text = db.Column(db.Text, nullable=False)
+    version_major = db.Column(db.Integer, nullable=False)
+    version_minor = db.Column(db.Integer, nullable=False)
+    version_patch = db.Column(db.Integer, nullable=False)
+    ratings = db.relationship('Rating', backref='question', lazy=True)
 
 
 class Rating(db.Model):
