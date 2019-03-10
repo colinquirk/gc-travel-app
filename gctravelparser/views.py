@@ -189,25 +189,7 @@ def review(review_type, uuid, review_number):
         review = Review(
             reviewer_id=get_reviewer(request.form),
             applicant_id=application.applicant.applicant_id,
-            review_number=review_number,
-            event_relevance=request.form.get('event-relevance'),
-            participation_justification=request.form.get('participation-justification'),
-            competitiveness=request.form.get('competitiveness'),
-            academic_value=request.form.get('academic-value'),
-            graduate_experience=request.form.get('graduate-experience'),
-            importance_clear_organization=request.form.get('importance-clear-organization'),
-            importance_comments=request.form.get('importance-comments'),
-            purpose_clear=request.form.get('purpose-clear'),
-            significance_explained=request.form.get('significance-explained'),
-            larger_context=request.form.get('larger-context'),
-            clear_presentation=request.form.get('clear-presentation'),
-            significance_comments=request.form.get('significance-comments'),
-            clear_commitment=request.form.get('clear-commitment'),
-            help_peers_plan=request.form.get('help-peers-plan'),
-            contribution_clear_organization=request.form.get('contribution-clear-organization'),
-            contribution_comments=request.form.get('contribution-comments'),
-            merit_funding=request.form.get('merit-funding'),
-            overall_comments=request.form.get('overall-comments')
+            review_number=review_number
         )
         db.session.add(review)
         db.session.commit()
