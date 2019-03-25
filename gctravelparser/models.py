@@ -118,3 +118,4 @@ class Rating(db.Model):
     rating_id = db.Column(db.Integer, primary_key=True)
     review_id = db.Column(db.Integer, db.ForeignKey('review.review_id'), nullable=False)
     question_id = db.Column(db.Integer, db.ForeignKey('question.question_id'), nullable=False)
+    value = db.Column(db.Integer, nullable=False)
