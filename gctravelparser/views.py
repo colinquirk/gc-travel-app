@@ -3,7 +3,8 @@ from uuid import uuid4
 from flask import redirect, render_template, request, url_for
 from gctravelparser import app, db
 from gctravelparser.models import (
-    Applicant, Application, Recommendation, Review, Reviewer, Prompt, Response)  # Question Rating
+    Applicant, Application, Recommendation, Review, Reviewer, Prompt, Response, Question, Rating
+)
 
 
 def get_applicant(form):
@@ -197,6 +198,29 @@ def review(review_type, uuid, review_number):
         return redirect(url_for('index'))
 
     if review_type == 'basic':
+        questions = (
+            Question.query
+            .join(Prompt)
+            .filter_by(is_active=True)
+            .filter_by(in_basic_application=True)
+            .all()
+        )
+
+        prompts = (
+            Prompt.query
+            .filter_by(is_active=True)
+            .filter_by(in_basic_application=True)
+            .all()
+        )
+
+        responses = (
+            Response.query
+            .join(Prompt)
+            .filter_by(is_active=True)
+            .filter_by(in_basic_application=True)
+            .all()
+        )
+
         return render_template(
             'review_basic.html',
             first_name=application.applicant.first_name,
@@ -208,7 +232,10 @@ def review(review_type, uuid, review_number):
             travel_end=application.travel_end,
             event_name=application.event_name,
             faculty_name=application.faculty_name,
-            faculty_email=application.faculty_email
+            faculty_email=application.faculty_email,
+            prompts=prompts,
+            questions=questions,
+            responses=responses
         )
 
     if review_type == 'advanced':
