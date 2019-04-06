@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body>
+
+<h1>Advanced Travel Fund Application</h1>
+<p>Before filling out our application, please review all of the Travel Fund Policies and Instructions found on our <a href="http://gc.uchicago.edu/travel-fund">website</a>.
+</p>
+
+<form method="POST">
+    First name:<br>
+    <input type="text" name="firstname"><br><br>
+    Last name:<br>
+    <input type="text" name="lastname"><br><br>
+    UChicago Email:<br>
+    <input type="text" name="email"><br><br>
+    Travel Start Date:<br>
+    <input type="date" name="start-date"><br><br>
+    Travel End Date:<br>
+    <input type="date" name="end-date"><br><br>
+    Division:<br>
+    <select name="division">
+        <option value="">  </option>
+        <option value="bsd"> BSD </option>
+        <option value="psd"> PSD </option>
+        <option value="ime"> IME </option>
+        <option value="law"> Law </option>
+        <option value="hum"> Hum </option>
+        <option value="ssa"> SSA </option>
+        <option value="ssd"> SSD </option>
+        <option value="both"> Booth </option>
+        <option value="graham"> Graham </option>
+        <option value="pritzker"> Pritzker </option>
+        <option value="harris"> Harris </option>
+        <option value="divinity"> Divinity </option>
+    </select><br><br>
+    Name of Event:<br>
+    <input type="text" name="event-name"><br><br>
+    Presentation Type:<br>
+    <select name="presentation-type">
+        <option value="">  </option>
+        <option value="talk">Talk</option>
+        <option value="poster">Poster</option>
+        <option value="unknown">Unknown</option>
+        <option value="not-presenting">Not Presenting</option>
+    </select><br><br>
+    Faculty Contact Name:<br>
+    <input type="text" name="faculty-name"><br><br>
+    Faculty Email Address:<br>
+    <input type="text" name="faculty-email"><br><br>
+
+    <p>
+    <strong>
+        Answer the prompts below to the best of your ability. 
+        The Grad Council Travel Award is funded through life fees provided by the graduate student body. 
+        Please explain the relevance of your event, how it ties into what you do, and how you will give back to the community if you are funded. 
+        Avoid using special formatting (bulletpoints, etc) or unusual characters.
+        When listing your expenses and alternate funding sources, please only use US Dollars.
+    </strong>
+    </p>
+
+    {% for prompt in prompts %}
+        <p>
+            {{prompt.text}}
+        </p>
+        <p>Word limit: {{prompt.word_limit}}</p>
+        <textarea rows="8" cols="100" name="{{prompt.slug}}"></textarea>
+    {% endfor %}
+
+    <p>
+        Upon submission of this form, an email will be automatically sent to your faculty contact containing the link to the recommendation form. 
+        Please contact them as soon as possible to make sure they receive it and avoid confusion/delays.
+    </p>
+
+    <p>
+        By submitting this form you certify that all of the above information is correct to the best of your knowledge, and that you have read and understood the Graduate Council Travel Fund Policies and Instructions found on our website.
+    </p>
+
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+<script>
+
+</script>
+
+</html>
