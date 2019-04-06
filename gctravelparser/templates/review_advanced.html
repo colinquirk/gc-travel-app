@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body>
+
+<h1>Graduate Council Travel Fund Basic Application Review</h1>
+
+<form method="POST">
+    <fieldset>
+        Reviewer First Name:<br>
+        <input type="text" name="reviewer-firstname"><br><br>
+        Reviewer Last Name:<br>
+        <input type="text" name="reviewer-lastname"><br><br>
+        Reviewer Email:<br>
+        <input type="text" name="reviewer-email"><br><br>
+    </fieldset>
+
+    <fieldset>
+        Applicant First Name:<br>
+        {{first_name}}<br><br>
+        Applicant Last Name:<br>
+        {{last_name}}<br><br>
+        Applicant Email Address:<br>
+        {{email}}<br><br>
+        Division:<br>
+        {{division}}<br><br>
+        Presentation Type:<br>
+        {{presentation_type}}<br><br>
+        Travel Start Date:<br>
+        {{travel_start}}<br><br>
+        Travel End Date:<br>
+        {{travel_end}}<br><br>
+        Event Name:<br>
+        {{event_name}}<br><br>
+    </fieldset>
+
+    <fieldset>
+        <p>
+            Question 1: 
+            In 200 words, describe the importance of this event and why it is relevant to your academic/professional interests.  
+            Additionally, please explain the nature of your participation in the event and describe how competitive it is to present at this particular event.
+        </p>
+        <p>
+            {{importance}}
+        </p>
+        Reviewer Questions (Rating 1=lowest; 5=highest):<br><br>
+
+        Relevance of the event clearly described?
+        <select name="event-relevance">
+            <option value="">  </option>
+            <option value="5"> 5 </option>
+            <option value="4"> 4 </option>
+            <option value="3"> 3 </option>
+            <option value="2"> 2 </option>
+            <option value="1"> 1 </option>
+        </select><br><br>
+
+        Clear justification for participation?
+        <select name="participation-justification">
+            <option value="">  </option>
+            <option value="5"> 5 </option>
+            <option value="4"> 4 </option>
+            <option value="3"> 3 </option>
+            <option value="2"> 2 </option>
+            <option value="1"> 1 </option>
+        </select><br><br>
+
+        How competitive is the event?
+        <select name="competitiveness">
+            <option value="">  </option>
+            <option value="5"> 5 </option>
+            <option value="4"> 4 </option>
+            <option value="3"> 3 </option>
+            <option value="2"> 2 </option>
+            <option value="1"> 1 </option>
+        </select><br><br>
+
+        Clear organization and delivery?
+        <select name="importance-clear-organization">
+            <option value="">  </option>
+            <option value="5"> 5 </option>
+            <option value="4"> 4 </option>
+            <option value="3"> 3 </option>
+            <option value="2"> 2 </option>
+            <option value="1"> 1 </option>
+        </select><br><br>
+
+        Reviewer Comments on Question 1:<br>
+        <textarea rows="8" cols="100" name="importance-comments"></textarea>
+    </fieldset>
+
+    <fieldset>
+        <p>
+            Question 2:
+            Within 400 words or less, please explain to your fellow graduate students what your project is and the significance of your research. 
+            How does your project contribute to your field of study? 
+            This information helps us understand how your event ties into the advancement of your degree. 
+            Please use language that would be appropriate for an educated lay-person.
+        </p>
+        <p>
+            {{significance}}
+        </p>
+        Reviewer Questions (Rating 1=lowest; 5=highest):<br><br>
+        Is the purpose clearly stated?
+        <select name="purpose-clear">
+            <option value="">  </option>
+            <option value="5"> 5 </option>
+            <option value="4"> 4 </option>
+            <option value="3"> 3 </option>
+            <option value="2"> 2 </option>
+            <option value="1"> 1 </option>
+        </select><br><br>
+
+        Research significance explained?
+        <select name="significance-explained">
+            <option value="">  </option>
+            <option value="5"> 5 </option>
+            <option value="4"> 4 </option>
+            <option value="3"> 3 </option>
+            <option value="2"> 2 </option>
+            <option value="1"> 1 </option>
+        </select><br><br>
+
+        Is a larger context explored?
+        <select name="larger-context">
+            <option value="">  </option>
+            <option value="5"> 5 </option>
+            <option value="4"> 4 </option>
+            <option value="3"> 3 </option>
+            <option value="2"> 2 </option>
+            <option value="1"> 1 </option>
+        </select><br><br>
+
+        Clear presentation of content?
+        <select name="clear-presentation">
+            <option value="">  </option>
+            <option value="5"> 5 </option>
+            <option value="4"> 4 </option>
+            <option value="3"> 3 </option>
+            <option value="2"> 2 </option>
+            <option value="1"> 1 </option>
+        </select><br><br>
+
+        Reviewer Comments on Question 2:<br>
+        <textarea rows="8" cols="100" name="significance-comments"></textarea>
+    </fieldset>
+
+    <fieldset>
+        <p>
+            Question 3: 
+            Graduate Council's goal is to build a strong community of scholars from across the University, from which this fund benefits. 
+            In 200 words or less, describe how in the months following your attendance you will contribute to the greater UChicago community. 
+            This can either tie directly into your event or can instead be general service to your fellow graduate students. 
+            (e.g. perhaps you will report back to your school, write a post for a website, create educational material, review for the travel fund committee, host a departmental event)?
+        </p>
+        <p>
+            {{contribution}}
+        </p>
+        Reviewer Questions (Rating 1=lowest; 5=highest):<br><br>
+        Clear commitment to helping the community?
+        <select name="clear-commitment">
+            <option value="">  </option>
+            <option value="5"> 5 </option>
+            <option value="4"> 4 </option>
+            <option value="3"> 3 </option>
+            <option value="2"> 2 </option>
+            <option value="1"> 1 </option>
+        </select><br><br>
+
+        Plan described for use of knowledge to help peers?
+        <select name="help-peers-plan">
+            <option value="">  </option>
+            <option value="5"> 5 </option>
+            <option value="4"> 4 </option>
+            <option value="3"> 3 </option>
+            <option value="2"> 2 </option>
+            <option value="1"> 1 </option>
+        </select><br><br>
+
+        Clear organization and delivery?
+        <select name="contribution-clear-organization">
+            <option value="">  </option>
+            <option value="5"> 5 </option>
+            <option value="4"> 4 </option>
+            <option value="3"> 3 </option>
+            <option value="2"> 2 </option>
+            <option value="1"> 1 </option>
+        </select><br><br>
+
+        Reviewer Comments on Question 3:<br>
+        <textarea rows="8" cols="100" name="contribution-comments"></textarea>
+    </fieldset>
+
+    <fieldset>
+        List of Proposed Expenditures:<br>
+        <p>{{expenditures}}</p><br>
+        List of Alternate Funding Sources:<br>
+        <p>{{alternative_funding}}</p>
+        Faculty Contact:<br>
+        {{faculty_name}}<br><br>
+        Faculty Email:<br>
+        {{faculty_email}}
+    </fieldset>
+
+    <fieldset>
+        <p>
+            Overall Strength of Application: 
+            Please take a moment to decide the overall strength of the application and whether you feel the student has appropriate need for funding. 
+            Consider, e.g. if the PI can provide funding if the student does not receive this award, if the cost of the conference and its location are reasonable, and especially if the student will need to pay out of pocket for travel. 
+            An applicant with extreme need (4-5) may be a senior student who would have no choice but to pay the cost of attending a US conference out of their own pocket, whereas a low-need (1-2) applicant may be a third-year whose PI can, but doesn’t want to, pay for the student to attend a conference in Portugal.
+        </p>
+        Reviewer Questions (Rating 1=lowest; 5=highest):<br>
+        Does this application financially merit funding?
+        <select name="merit-funding">
+            <option value="">  </option>
+            <option value="5"> 5 </option>
+            <option value="4"> 4 </option>
+            <option value="3"> 3 </option>
+            <option value="2"> 2 </option>
+            <option value="1"> 1 </option>
+        </select><br><br>
+
+        Reviewer overall comments and concerns on application:<br>
+        <textarea rows="8" cols="100" name="overall-comments"></textarea>
+    </fieldset>
+
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+<script>
+
+</script>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body>
+
+<h1>Graduate Council Travel Fund Recommendation</h1>
+<p>
+    The Graduate Council Travel Fund provides funding for graduate students at the University of Chicago to attend academic conferences, professional conferences, case competitions, and other events to further their graduate careers. 
+    Recommenders, please provide some information on your student to help Graduate Council determine whether their proposed application merits funding.
+</p>
+<p>
+    Note: Submission of this recommendation does not guarantee funding for the student applicant.
+</p>
+<p>
+    Questions or concerns may be addressed to the Graduate Council VP for the Travel Fund, Mary Burkey (mtburkey@uchicago.edu)
+</p>
+
+<form method="POST">
+    <fieldset>
+        <h2>Basic Information</h2>
+        Student First Name:<br>
+        <input type="text" name="student-firstname"><br><br>
+        Student Last Name:<br>
+        <input type="text" name="student-lastname"><br><br>
+        Recommender First Name:<br>
+        <input type="text" name="recommender-firstname"><br><br>
+        Recommender Last Name:<br>
+        <input type="text" name="recommender-lastname"><br><br>
+        Recommender Email:<br>
+        <input type="text" name="recommender-email"><br><br>
+        Position:<br>
+        <input type="text" name="recommender-position" value="e.g. Professor of Chemistry"><br><br>
+        <select name="relationship">
+            <option value="">  </option>
+            <option value="research-advisor"> Research Advisor </option>
+            <option value="academic-advisor"> Academic Advisor </option>
+            <option value="professor"> Professor </option>
+            <option value="other"> Other </option>
+        </select><br><br>
+    </fieldset>
+
+    <fieldset>
+        <h2>Student Recommendation</h2>
+
+        <p>How would you describe this student's academic merit?</p>
+        <select name="merit">
+            <option value="">  </option>
+            <option value="best"> This is the best student I have ever advised </option>
+            <option value="excellent"> This is an excellent graduate student </option>
+            <option value="above-average"> This is an above average graduate student </option>
+            <option value="average"> This is an average graduate student </option>
+            <option value="below-average"> This is a below average graduate student </option>
+        </select><br><br>
+
+        <p>How would you describe the conference or event this student is attending?</p>
+        <select name="conference">
+            <option value="">  </option>
+            <option value="premier"> This is the premier conference or event in the student's field and it is highly recommended that they attend </option>
+            <option value="excellent"> This is an excellent conference or event and will contribute greatly to the student's graduate experience </option>
+            <option value="good"> This is a good conference or event that the student should consider attending </option>
+            <option value="average"> This is an average conference or event or the student is participating in something other than an event </option>
+            <option value="below-average"> This is a below average conference or event </option>
+        </select><br><br>
+
+        <p>How would this student act as a representative of the University of Chicago graduate community during their travel?</p>
+        <select name="representative">
+            <option value="">  </option>
+            <option value="exemplary"> This student has the highest recommendation and would be an exemplary representative of the university </option>
+            <option value="well"> This student would represent the university well during their travel </option>
+            <option value="adequate"> This student would be an adequate representative of the university </option>
+            <option value="below-average"> This student would be a below average representative of the university </option>
+            <option value="poorly"> This student would poorly represent the university during their travel </option>
+        </select><br><br>
+
+        <p>Please use this space to provide additional comments that would be helpful in determining the student's merit when judging their application.</p>
+        <textarea rows="8" cols="100" name="additional-comments"></textarea>
+    </fieldset>
+
+    <p><em>By entering your name below you agree that this student should be recommended to be considered for a University of Chicago Graduate Council Travel Fund grant, and that the above information is to the best of your knowledge complete and accurate.</em></p>
+
+    <p>Electronic Signature:</p>
+    <input type="text"><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+<script>
+
+</script>
+
+</html>
