@@ -1,4 +1,4 @@
-# [![Build Status](https://travis-ci.org/colinquirk/gc-travel-app.svg?branch=master)](https://travis-ci.org/colinquirk/gc-travel-app) Graduate Council Travel Fund Parser
+# [![Build Status](https://travis-ci.org/colinquirk/gc-travel-app.svg?branch=master)](https://travis-ci.org/colinquirk/gc-travel-app) Graduate Council Travel Fund App
 
 A system for handling the review of UChicago Graduate Council Travel Fund applications
 
